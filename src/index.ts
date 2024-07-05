@@ -60,7 +60,6 @@ teleBot.use(chatMembers(adapter));
   async function toRepeat() {
     try {
       const pairs = await getData();
-      console.log(pairs);
       await sendAlert(pairs.data);
       trackMC();
     } catch (error) {
