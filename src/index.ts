@@ -30,6 +30,7 @@ async function getData() {
   });
 
   const text = JSON.parse((await response?.text()) || "[]");
+
   await browser.close();
   return text as PhotonPairs;
 }
@@ -59,6 +60,7 @@ teleBot.use(chatMembers(adapter));
   async function toRepeat() {
     try {
       const pairs = await getData();
+      console.log(pairs);
       await sendAlert(pairs.data);
       trackMC();
     } catch (error) {
